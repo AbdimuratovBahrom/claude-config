@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,49 @@
 </head>
 <body>
   <div class="calculator">
+
+    <!-- Панель тем -->
+    <div class="theme-bar">
+      <button class="theme-btn" data-theme="dark" title="Тёмная">🌙</button>
+      <button class="theme-btn" data-theme="light" title="Светлая">☀️</button>
+      <button class="theme-btn" data-theme="purple" title="Фиолетовая">💜</button>
+      <button class="theme-btn" data-theme="green" title="Зелёная">💚</button>
+      <button class="mode-toggle" id="modeToggle">Научный</button>
+    </div>
+
+    <!-- Дисплей -->
     <div class="display">
       <div class="expression" id="expression"></div>
       <div class="result" id="result">0</div>
     </div>
+
+    <!-- История вычислений -->
+    <div class="history-panel" id="historyPanel">
+      <div class="history-header">
+        <span>История</span>
+        <button onclick="clearHistory()">Очистить</button>
+      </div>
+      <div class="history-list" id="historyList"></div>
+    </div>
+    <button class="history-toggle" id="historyToggle" onclick="toggleHistory()">
+      История ▾
+    </button>
+
+    <!-- Научные кнопки -->
+    <div class="buttons-scientific" id="scientificButtons">
+      <button class="btn btn-sci" onclick="sciOp('sin')">sin</button>
+      <button class="btn btn-sci" onclick="sciOp('cos')">cos</button>
+      <button class="btn btn-sci" onclick="sciOp('tan')">tan</button>
+      <button class="btn btn-sci" onclick="sciOp('log')">log</button>
+      <button class="btn btn-sci" onclick="sciOp('ln')">ln</button>
+      <button class="btn btn-sci" onclick="sciOp('sqrt')">√</button>
+      <button class="btn btn-sci" onclick="sciOp('sq')">x²</button>
+      <button class="btn btn-sci" onclick="sciOp('inv')">1/x</button>
+      <button class="btn btn-sci" onclick="inputNum('3.14159265')">π</button>
+      <button class="btn btn-sci" onclick="inputNum('2.71828182')">e</button>
+    </div>
+
+    <!-- Основные кнопки -->
     <div class="buttons">
       <button class="btn btn-wide btn-secondary" onclick="clearAll()">AC</button>
       <button class="btn btn-secondary" onclick="toggleSign()">+/-</button>
@@ -37,6 +76,7 @@
       <button class="btn" onclick="inputDot()">.</button>
       <button class="btn btn-equals" onclick="calculate()">=</button>
     </div>
+
   </div>
   <script src="app.js"></script>
 </body>
