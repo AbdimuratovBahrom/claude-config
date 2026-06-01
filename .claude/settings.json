@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "graphify update . --silent 2>/dev/null  true"
+            "command": "graphify update . --silent 2>/dev/null || true"
           }
         ]
       }
@@ -27,7 +27,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "graphify status 2>/dev/null  true"
+            "command": "graphify status 2>/dev/null || true"
           }
         ]
       }
