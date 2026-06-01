@@ -1,0 +1,45 @@
+{
+  "plugins": [
+    {
+      "source": "ruvnet/ruflo",
+      "components": [
+        "ruflo-core",
+        "ruflo-swarm",
+        "ruflo-autopilot"
+      ]
+    }
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify update . --silent 2>/dev/null  true"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "graphify status 2>/dev/null  true"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git:*)",
+      "Bash(npm:*)",
+      "Bash(pip:*)",
+      "Bash(graphify:*)",
+      "Bash(claude-flow:*)"
+    ]
+  }
+}
